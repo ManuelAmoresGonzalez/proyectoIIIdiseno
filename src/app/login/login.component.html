@@ -2,23 +2,41 @@
 
     <div class="col">
 
-        <form>
+        <form   (ngSubmit)="guardar()" 
+                #miFormulario="ngForm"
+                autocomplete="off">
             <!-- Campo del nombre usuario -->
             <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label"> Usuario </label>
+                <label class="col-sm-3 col-form-label"> User </label>
                 <div class="col-sm-9">
-                    <input type="text"
-                        placeholder="Nombre del usuario"
-                        required>
+                    <input  type="text"
+                            class="form-control"
+                            ngModel
+                            name="user"
+                            placeholder="Nombre del usuario"
+                            required>
                 </div>
             </div>
-                <!-- Campo de la contraseña del usuario -->
-                <div class="mb-3 row">
-                    <label class="col-sm-3 col-form-label"> Contraseña </label>
+            <!-- Campo de la contraseña del usuario -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label"> Password </label>
                     <div class="col-sm-9">
                         <input type="text"
-                            placeholder="Contraseña"
-                            required>
+                                class="form-control"
+                                ngModel
+                                name="password"
+                                placeholder="Contraseña"
+                                required>
+                    </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            [disabled]="miFormulario.invalid"
+                            class="btn btn-primary">
+                        Guardar
+                    </button>
                 </div>
             </div>
 
