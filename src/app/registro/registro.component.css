@@ -1,0 +1,19 @@
+.container{
+    width: 25%;
+    padding: 1%;
+    text-align: center;
+    height: auto;
+    margin-left: 37%;
+    margin-top: 150px;
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    border-radius: 4%;
+}
+h6{
+    color: rgb(121, 126, 121)
+}
+
+.block{
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+}
