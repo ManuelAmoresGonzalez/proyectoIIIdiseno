@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,11 @@ export class LoginComponent implements OnInit {
     if(this.miFormulario.value.user == "Hola" && this.miFormulario.value.password == "hola"){
       this.router.navigate(['vistaservicio']);
     }else{
-      console.log("No se puede entrar")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Tus credenciales son incorrectas'
+      })
     }    
   }
 }
