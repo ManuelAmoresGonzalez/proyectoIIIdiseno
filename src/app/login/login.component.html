@@ -1,49 +1,10 @@
-<div class="row">
-
-    <div class="col">
-
-        <form   (ngSubmit)="guardar()" 
-                #miFormulario="ngForm"
-                autocomplete="off">
-            <!-- Campo del nombre usuario -->
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label"> User </label>
-                <div class="col-sm-9">
-                    <input  type="text"
-                            class="form-control"
-                            ngModel
-                            name="user"
-                            placeholder="Nombre del usuario"
-                            required>
-                </div>
-            </div>
-            <!-- Campo de la contraseña del usuario -->
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label"> Password </label>
-                    <div class="col-sm-9">
-                        <input type="text"
-                                class="form-control"
-                                ngModel
-                                name="password"
-                                placeholder="Contraseña"
-                                required>
-                    </div>
-            </div>
-            
-            <div class="row">
-                <div class="col">
-                    <button type="submit"
-                            [disabled]="miFormulario.invalid"
-                            class="btn btn-primary">
-                        Guardar
-                    </button>
-                </div>
-            </div>
-
-
-        </form>
-
-    </div>
-
-
+<div class="container">
+    <form   (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
+        <input  type="text" class="form-control block" ngModel  name="user" placeholder="Nombre del usuario" required>
+        <input type="text" class="form-control block" ngModel name="password" placeholder="Contraseña" required>               
+        <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-primary  block"> Acceder al Sistema </button>       
+        <hr>
+        <h6>Aún no has registrado tu servicio ?</h6>
+        <button type="button" [routerLink]= "['/registro']" class="btn btn-warning block"> Registrar un Servicio </button>    
+    </form>
 </div>
