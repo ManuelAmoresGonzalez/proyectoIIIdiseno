@@ -20,19 +20,17 @@ export class LoginComponent implements OnInit {
   }
 
   guardar(){
-    this.service.getDepList(this.miFormulario.value).subscribe(res=>{
-      console.log(res);
-    })
-    console.log(this.miFormulario.value.user);
-    console.log(this.miFormulario.value.password);
-    /*if(this.miFormulario.value.user == "Hola" && this.miFormulario.value.password == "hola"){
-      this.router.navigate(['vistaservicio']);
-    }else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Tus credenciales son incorrectas'
-      })
-    }    */
+    this.service.login(this.miFormulario.value).subscribe(res=>{
+      if(res?.error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: res.error
+        })
+      } else {
+        this.service.currentUser = res;
+        this.router.navigate(['vistaservicio']);
+      }
+    })  
   }
 }

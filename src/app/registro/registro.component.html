@@ -1,12 +1,12 @@
 <div class="container">
     <form   (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
         <input  type="text" class="form-control block" ngModel  name="name" placeholder="Nombre completo" required>
-        <input  type="text" class="form-control block" ngModel  name="direction" placeholder="Direccion" required>
+        <input  type="text" class="form-control block" ngModel  name="address" placeholder="Direccion" required>
         <input  type="text" class="form-control block" ngModel  name="phone" placeholder="Teléfono" required>
         <textarea class="form-control block" ngModel name="description" rows="4" placeholder="Descripción personal" required></textarea>
         <input class="form-control" style= "margin-top: 12px " type="file" id="formFile">
-        <input type="email" class="form-control block" ngModel name="correo" placeholder="Correo Electrónico" required>  
+        <input type="email" class="form-control block" ngModel name="email" placeholder="Correo Electrónico" required>  
         <input type="text" class="form-control block" ngModel name="password" placeholder="Contraseña" required>               
-        <button type="submit" [disabled]="miFormulario.invalid" [routerLink] = "['/login']"class="btn btn-primary  block"> Acceder al Sistema </button>
+        <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-primary  block"> Acceder al Sistema </button>
     </form>
 </div>

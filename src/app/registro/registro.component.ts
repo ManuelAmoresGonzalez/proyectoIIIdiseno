@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ServiceLogginService } from '../Services/service-loggin.service';
 
 
 @Component({
@@ -12,19 +13,29 @@ import Swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
 
   @ViewChild('miFormulario') miFormulario !: NgForm;
-  constructor(public router: Router) { }
+  constructor(public router: Router, private service: ServiceLogginService) { }
 
   ngOnInit(): void {
   }
 
   guardar(){
- 
-    console.log(this.miFormulario.value.name);
-    console.log(this.miFormulario.value.direction);
-    console.log(this.miFormulario.value.phone);
-    console.log(this.miFormulario.value.description);
-    console.log(this.miFormulario.value.correo);
-    console.log(this.miFormulario.value.password);
+    const newUser = { user: this.miFormulario.value }
+    this.service.create(newUser).subscribe(res => {
+      if(!res) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Message',
+          text: 'Cuenta creada exitosamente...'
+        })
+        this.router.navigate(['login']);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Error al crear cuenta'
+        })
+      }
+    });
     
   }
 }
