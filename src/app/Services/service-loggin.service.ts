@@ -20,4 +20,8 @@ export class ServiceLogginService {
   create(user: any):Observable<any>{
     return this.http.post<any>(this.APIUrl+`user`, user);
   }
+
+  update(user: any):Observable<any>{
+    return this.http.put<any>(this.APIUrl+`user/${user.id}`, user);
+  }
 }
