@@ -8,19 +8,28 @@ import { RegistroComponent } from './registro/registro.component';
 import { VistaServicioComponent } from './vista-servicio/vista-servicio.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment'
+import { FileUploadService } from './Services/file-upload.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    VistaServicioComponent
+    VistaServicioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [FileUploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
